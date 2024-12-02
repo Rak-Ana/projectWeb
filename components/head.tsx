@@ -45,14 +45,14 @@ return(
         <div className="sm:flex sm:gap-4">
           <a
             className="block rounded-md bg-pink-500 px-5 py-2.5 text-sm font-medium text-white transition hover:bg-pink-700"
-            href="#"
+            href="/Login"
           >
             Login
           </a>
 
           <a
             className="hidden rounded-md bg-gray-100 px-5 py-2.5 text-sm font-medium text-pink-600 transition hover:text-pink-600/75 sm:block"
-            href="#"
+            href="/Register"
           >
             Register
           </a>

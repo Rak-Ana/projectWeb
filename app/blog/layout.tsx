@@ -9,10 +9,7 @@ const sarabun = Sarabun({
   subsets: ['thai']
 })
 
-export const metadata: Metadata = {
-  title: "My App",
-  description: "This is my sample application",
-};
+
 
 export default function RootLayout({
   children,
@@ -24,11 +21,11 @@ export default function RootLayout({
       <body
         className={`${sarabun.className}`}
       >
-         {/* { <Head /> } */}
-        <main>
+         { <Head /> }
+        
           {children}
-        </main>
-        {/* { <Foot />} */}
+        
+        { <Foot />}
       </body>
     </html>
   );
