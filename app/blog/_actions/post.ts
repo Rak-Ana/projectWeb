@@ -14,6 +14,7 @@ type fieldErrors = {
     subject?: string[] | undefined;
     detail?: string[] | undefined;
     message?: string | undefined;
+    image?: string | undefined;
 }
 
 export default async function post(prevState: unknown, formData: FormData) : 
@@ -36,6 +37,7 @@ export default async function post(prevState: unknown, formData: FormData) :
     const {subject, detail} = data
     const user = await getSession()
     const userId = user.id
+
 
     try {
         await prisma.post.create({
