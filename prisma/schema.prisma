@@ -21,6 +21,7 @@ model User {
 model Post {
   id        Int      @id @default(autoincrement())
   subject   String
+  image     String   @default("default-image.jpg")
   detail    String
   userId    Int
   like      Int

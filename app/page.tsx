@@ -11,12 +11,12 @@ export default function Home() {
           >
 
 
-            <span className="sm:block"> Music For Everyone </span>
+            <span className="sm:block mb-4"> LiteTip </span>
           </h1>
 
           <p className="mx-auto mt-4 max-w-xl sm:text-xl/relaxed">
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nesciunt illo tenetur fuga ducimus
-            numquam ea!
+          Small Tips, Big Impact.
+          <p>Complete your day With a simple trick that anyone can share.</p>
           </p>
 
           <div className="mt-8 flex flex-wrap justify-center gap-4">

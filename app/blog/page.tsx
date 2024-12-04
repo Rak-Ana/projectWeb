@@ -6,7 +6,7 @@ import DeleteButton from "./_component/DeleteButton";
 import deletePost from "./_actions/deletePost";
 import { style } from "./constants/style"
 import LikeButton from "./_component/LikeButton";
-import {likePost , unlikePost} from "./_actions/likePost";
+import { likePost, unlikePost } from "./_actions/likePost";
 import Head from "@/components/head";
 import Foot from "@/components/foot";
 
@@ -17,15 +17,15 @@ export default async function Blog() {
         },
     });
 
-    
+
     const user = await getSession()
 
     return (
         <div>
-            <Head />
             <nav className="flex justify-between mb-4">
-                <div>Blog</div>
-                <div>
+                
+                <h1 className="ml-4 mt-2 text-pink-700 text-4xl font-bold">LiteTip</h1>
+                <div className="mt-3 mr-3">
                     {user ?
                         <>Hello: {user.name} | <Logout /> </> :
                         <>
@@ -34,9 +34,8 @@ export default async function Blog() {
                         </>}
                 </div>
             </nav>
-
             <hr /> <br />
-            <div className="flex flex-wrap gap-4 mb-8">
+            <div className="flex flex-wrap gap-4 mb-8 ml-8">
                 {posts.map((post) => (
                     <div key={post.id} className="border-2 border-blue-800 mr-4 p-4 rounded-lg min-w-[200px] max-w-[300px] relative">
                         <div className="mb-2">{post.subject}</div>
