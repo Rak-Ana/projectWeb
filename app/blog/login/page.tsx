@@ -17,7 +17,7 @@ export default function Login() {
         <div>
             <Navbar />
 
-            <div className="flex  justify-center mb-11  ">
+            <div className="flex  ml-80 mb-11 mt-5 ">
 
                 <form action={action} className="flex max-w-md flex-col gap-4 ">
                     <div>
@@ -43,7 +43,7 @@ export default function Login() {
                     </div>
                     
                         {data.message ? <p>{data.message}</p> : <SubmitButton label="Login" />}
-                        <Link href="/blog">Back</Link>
+                        <Link className="underline" href="/blog" >Back</Link>
                 </form>
             </div>
             <Foot />

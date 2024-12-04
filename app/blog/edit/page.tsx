@@ -1,39 +1,43 @@
 "use client"
 import { useFormState } from "react-dom"
-import post from "../_actions/post"
 import { redirect } from "next/navigation"
 import Link from "next/link"
 import SubmitButton from "../_component/SubmitButton"
+import { style } from "../constants/style"
+import updatePost from "../_actions/updatePost"
 
-const style = 'border-2 border-black text-blue-800 px-2 py-1 rounded hover:bg-blue-100 focus-within:bg-blue-200'
+export default function Edit({ searchParams }:
+  { searchParams: { [key: string]: string } }) {
 
-export default function New() {
-  
-  const [data, action] = useFormState(post, {})
+  const { id, subject, detail } = searchParams;
+  console.log("Id: ", id, subject, detail)
 
-  if (data.message) {
+  const [data, action] = useFormState(updatePost, {})
+
+  if (data.message) { 
     redirect("/blog")
   }
   return (
     <>
-      New
+      Edit
       <hr />
       <form action={action} className="mt-4">
         <div className="flex flex-col mb-2">
           <label htmlFor="subject">Subject</label>
-          <input className={style} type="subject" name="subject" id="subject" required />
+          <input className={style} type="subject" name="subject" id="subject" defaultValue={subject} required />
           {data.error?.subject && <div className="text-red-600">{data.error?.subject[0]}</div>}
         </div>
         <div className="flex flex-col mb-4">
           <label htmlFor="detail">Detail</label>
-          <textarea className={style}  name="detail" id="detail" required />
+          <textarea className={style} name="detail" id="detail" defaultValue={detail} required />
           {data.error?.detail && <div className="text-red-600">{data.error?.detail[0]}</div>}
         </div>
+        <div><input type="hidden" name="id" id="id" value={id} /></div>
         <div>
           {data.error?.message && <div className="text-red-600">{data.error?.message}</div>}
         </div>
         <div>
-          {data.message ? <p>{data.message}</p> : <SubmitButton label="Post" />}
+          {data.message ? <p>{data.message}</p> : <SubmitButton label="Update" />}
         </div>
       </form>
       <br /><hr />
