@@ -19,13 +19,13 @@ export default function Login() {
 
             <div className="flex  ml-80 mb-11 mt-5 ">
 
-                <form action={action} className="flex max-w-md flex-col gap-4 ">
+                <form action={action} className="flex  flex-col gap-4 w-full">
                     <div>
                         <div className="mb-2 block ">
                             {data.error?.email && <div className="text-red-600">{data.error?.email[0]}</div>}
                             <label htmlFor="email1" >Your email</label>
                         </div>
-                        <input className="border-gray-200 border-2 rounded " id="email1" type="email" placeholder="name@gmial.com" required />
+                        <input className="border-gray-200 border-2 rounded w-1/3" id="email1" type="email" placeholder="name@gmial.com" required />
                     </div>
                     <div>
                         <div className="mb-2 block">
