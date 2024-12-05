@@ -21,6 +21,7 @@ export default async function post(prevState: unknown, formData: FormData) :
     Promise<{
         message?: string;
         data?: string;
+        image?:string;
         error?: fieldErrors;
     }> {
  

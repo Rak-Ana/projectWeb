@@ -8,6 +8,7 @@ const addSchema = z.object({
     id: z.string(),
     subject: z.string().min(3).max(20),
     detail: z.string().min(3),
+    
 })
 
 type fieldErrors = {
@@ -15,6 +16,7 @@ type fieldErrors = {
     subject?: string[] | undefined;
     detail?: string[] | undefined;
     message?: string | undefined;
+    image?:string | undefined;
 }
 
 export default async function updatePost(prevState: unknown, formData: FormData):
@@ -22,9 +24,10 @@ export default async function updatePost(prevState: unknown, formData: FormData)
         message?: string
         data?: string
         error?: fieldErrors
+
     }> {
 
-    console.log("Subject: " + formData.get("subject") +
+    console.log("Subject: " + formData.get("subject") + formData.get("image")+
         formData.get("detail1"))
 
     const result = addSchema.safeParse(Object.fromEntries(formData.entries()))

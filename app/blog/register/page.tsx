@@ -5,10 +5,11 @@ import { redirect } from "next/navigation"
 import Link from "next/link"
 import SubmitButton from "../_component/SubmitButton"
 import { style } from "../constants/style"
+import { useActionState } from "react"
 
 export default function Register() {
 
-    const [data, action] = useFormState(register, {})
+    const [data, action] = useActionState(register, {})
     if (data.message) {
         redirect("/blog")
     }
