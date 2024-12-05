@@ -9,9 +9,8 @@ const addSchema = z.object({
     email: z.string().email().max(20),
     password: z.string().min(3),
     remember: z
-    .string()
-    .optional() // Allow undefined
-    .transform((val) => val === "on" ? true : false),
+        .union([z.string(), z.undefined()]) // Accept string ('on') or undefined
+        .transform((val) => val === "on"),  // Transform 'on' to true, undefined to false
 })
 
 type fieldErrors = {

@@ -128,7 +128,7 @@ export default function Register() {
                                     <div>
                                         {data.error?.message && <div className="text-red-600">{data.error?.message}</div>}
                                     </div>
-                                <div>
+                                <div >
                                     {data.message ? <p>{data.message}</p> : <SubmitButton label="Register" />}
                                 </div>
                                

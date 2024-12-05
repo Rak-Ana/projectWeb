@@ -22,17 +22,17 @@ export default function Login() {
                 <form action={action} className="flex  flex-col gap-4 w-full">
                     <div>
                         <div className="mb-2 block ">
-                            {data.error?.email && <div className="text-red-600">{data.error?.email[0]}</div>}
                             <label htmlFor="email1" >Your email</label>
+                            <input className="border-gray-200 border-2 rounded w-1/3" id="email1" type="email" placeholder="name@gmial.com" required />
+                            {data.error?.email && <div className="text-red-600">{data.error?.email[0]}</div>}
                         </div>
-                        <input className="border-gray-200 border-2 rounded w-1/3" id="email1" type="email" placeholder="name@gmial.com" required />
                     </div>
                     <div>
                         <div className="mb-2 block">
-                            <label htmlFor="password1"  >Your password</label>
+                            <label htmlFor="password"  >Your password</label>
+                            <input className="border-gray-200 border-2 rounded" id="password1" type="password" required />
+                            {data.error?.password && <div className="text-red-600">{data.error?.password[0]}</div>}
                         </div>
-                        <input className="border-gray-200 border-2 rounded" id="password1" type="password" required />
-                        {data.error?.password && <div className="text-red-600">{data.error?.password[0]}</div>}
                     </div>
                     <div className="flex items-center gap-2">
                         <input className="w-6  mr-2 " type="checkbox" name="remember" id="remember" />

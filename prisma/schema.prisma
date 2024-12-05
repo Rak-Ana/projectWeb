@@ -16,18 +16,21 @@ model User {
   name     String
   password String
    posts    Post[]
+  favorites Post[]   @relation("UserFavorites")
 }
 
 model Post {
   id        Int      @id @default(autoincrement())
   subject   String
   image     String   @default("default-image.jpg")
+   favorite   Int       @default(0)
   detail    String
   userId    Int
   like      Int
   user      User     @relation(fields: [userId], references: [id])
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+  favoritedBy User[]   @relation("UserFavorites")
 }
 
 

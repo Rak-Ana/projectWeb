@@ -19,25 +19,24 @@ type fieldErrors = {
 
 export default async function post(prevState: unknown, formData: FormData) : 
     Promise<{
-        message?:string
-        data?:string
-        error?:fieldErrors
+        message?: string;
+        data?: string;
+        error?: fieldErrors;
     }> {
  
     console.log("Subject: " + formData.get("subject") +
-        formData.get("detail1"))
+        formData.get("detail1"));
 
-    const result = addSchema.safeParse(Object.fromEntries(formData.entries()))
+    const result = addSchema.safeParse(Object.fromEntries(formData.entries()));
     if (result.success === false) {
-        console.log("Error: ", result.error.formErrors.fieldErrors)
-        return {error: result.error.formErrors.fieldErrors}
+        console.log("Error: ", result.error.formErrors.fieldErrors);
+        return { error: result.error.formErrors.fieldErrors };
     }
 
     const data = result.data
     const {subject, detail} = data
-    const user = await getSession()
-    const userId = user.id
-
+    const User = await getSession()
+    const userId = User.id
 
     try {
         await prisma.post.create({

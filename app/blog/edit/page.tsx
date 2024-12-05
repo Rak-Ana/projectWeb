@@ -10,7 +10,7 @@ export default function Edit({ searchParams }:
   { searchParams: { [key: string]: string } }) {
 
   const { id, subject, detail } = searchParams;
-  console.log("Id: ", id, subject, detail)
+  console.log( id, subject, detail)
 
   const [data, action] = useFormState(updatePost, {})
 

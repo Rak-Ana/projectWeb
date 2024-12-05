@@ -1,6 +1,6 @@
 export default function Foot(){
     return(
-    <footer className="bg-gray-100">
+    <footer className="bg-gray-100 ">
         <div className="mx-auto max-w-5xl px-4 py-16 sm:px-6 lg:px-8">
         <h1 className="ml-4 mt-2 text-pink-700 text-4xl font-bold text-center">LiteTip</h1>
       
