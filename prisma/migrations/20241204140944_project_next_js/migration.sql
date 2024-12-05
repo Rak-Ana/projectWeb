@@ -10,6 +10,7 @@ CREATE TABLE "User" (
 CREATE TABLE "Post" (
     "id" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
     "subject" TEXT NOT NULL,
+    "image" TEXT NOT NULL DEFAULT 'default-image.jpg',
     "detail" TEXT NOT NULL,
     "userId" INTEGER NOT NULL,
     "like" INTEGER NOT NULL,

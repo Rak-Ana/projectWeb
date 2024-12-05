@@ -24,11 +24,13 @@ export default async function seed() {
                 create: [
                     {
                         subject: 'Subject',
+                        image:'',
                         detail: 'Lorem ipsum dol epturi! Fugit numquam, veritatis cumque nobis minima at. Deserunt, vel eum!',
                         like:0,
                     },
                     {
                         subject: 'Subject 2',
+                        image:'',
                         detail: 'Lorem ipsum dol epturi! Fugit numquam, veritatis cumque nobis minima at. Deserunt 2',
                         like:0,
                     },

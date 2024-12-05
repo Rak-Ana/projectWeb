@@ -40,6 +40,7 @@ export default async function Blog() {
                     <div key={post.id} className="border-2 border-blue-800 mr-4 p-4 rounded-lg min-w-[200px] max-w-[300px] relative">
                         <div className="mb-2">{post.subject}</div>
                         <hr />
+                        {/* <div className="">{post.image}</div> */}
                         <div className="min-h-24 mt-2">{post.detail}</div>
                         <div>By: {post.user.name}</div>
                         <span>{post.like} <LikeButton id={post.id} likePost={likePost} unlikePost={unlikePost} /> </span>
