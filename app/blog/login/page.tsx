@@ -23,12 +23,12 @@ export default function Login() {
         <div>
             <Navbar />
             <div className="form-container">
-                <form action={action} className="flex flex-col gap-4 w-full">
+                <form action={action} className="flex flex-col gap-4 w-full ml-5">
                     <div>
-                        <div className="mb-2 block">
+                        <div className="mb-2 block mt-5 ">
                             <label htmlFor="email1">Your email</label>
                             <input
-                                className="border-gray-200 border-2 rounded w-1/3"
+                                className="border-gray-200 border-2 rounded w-1/3 ml-5"
                                 id="email1"
                                 name="email"
                                 type="email"
@@ -42,7 +42,7 @@ export default function Login() {
                         <div className="mb-2 block">
                             <label htmlFor="password1">Your password</label>
                             <input
-                                className="border-gray-200 border-2 rounded"
+                                className="border-gray-200 border-2 rounded ml-5"
                                 id="password1"
                                 name="password"
                                 type="password"
@@ -58,7 +58,8 @@ export default function Login() {
                     <div>
                         {data.error?.message && <div className="text-red-600">{data.error?.message}</div>}
                     </div>
-                    {data.message ? <p>{data.message}</p> : <SubmitButton label="Login" />}
+                    <div>{data.message ?  <p>{data.message}</p> : <SubmitButton label="Login" />}</div>
+                    
                     <Link className="underline" href="/blog">Back</Link>
                 </form>
             </div>

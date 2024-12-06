@@ -1,5 +1,6 @@
 import prisma from "@/utils/db"
 import Link from "next/link";
+import Image from "next/image";
 import Logout from "./_component/Logout";
 import { getSession } from "@/utils/loginUser";
 import DeleteButton from "./_component/DeleteButton";
@@ -8,7 +9,8 @@ import { style } from "./constants/style"
 import LikeButton from "./_component/LikeButton";
 import { likePost, unlikePost } from "./_actions/likePost";
 import Foot from "@/components/foot";
-import FavoriteButton from "./_component/FavoriteButton";
+
+
 
 export default async function Blog() {
 
@@ -39,24 +41,18 @@ export default async function Blog() {
             <hr /> <br />
             <div className="flex flex-wrap gap-2 justify-center">
                 {posts.map((post) => (
-
                     <div>
                         <div key={post.id} className=" border-2 mr-4 p-4 rounded-lg min-w-[200px] max-w-[300px] relative hover:shadow-lg mb-4 ml-4">
                             <div className="mb-2">{post.subject}</div>
 
                             <hr />
                             <div>
-                                <img src={post.image} alt="image" className="w-full h-auto " />
+                                <img width={50} height={50} src={post.image} alt="image" className="w-full h-auto " />
                             </div>
                             <div className="min-h-24 mt-2">{post.detail}</div>
                             <div>By: {post.user.name}</div>
                             <span>{post.like} <LikeButton id={post.id} likePost={likePost} unlikePost={unlikePost} /> </span>
-                            <span className="ml-4">
-                                {/* Favorite Button */}
-                                {user && (
-                                    <FavoriteButton postId={post.id} userId={user.id} />
-                                )}
-                            </span>
+
                             {user ?
                                 <>
                                     <Link href={{
@@ -79,18 +75,23 @@ export default async function Blog() {
                 ))}
             </div>
 
-            <Link href="/blog/new"
-                className="border-2 border-black p-2 m-2 rounded-lg">
-                New
-            </Link>
-            <Link href="/blog/user"
-                className="border-2 border-black p-2 m-2 rounded-lg">
-                User
-            </Link>
-            <Link href="/blog/favorite"
-                className="border-2 border-black p-2 m-2 rounded-lg">
-                Your Favorite
-            </Link>
+            {user ? <div className="mb-5 mt-5">
+                <Link href="/blog/new"
+                    className="border-2 border-pink-700 p-2 m-2 rounded-lg">
+                    New
+                </Link>
+                <Link href="/blog/user"
+                    className="border-2 border-pink-700  p-2 m-2 rounded-lg">
+                    User
+                </Link>
+                <Link href="/blog/cat"
+                    className="border-2 border-pink-700  p-2 m-2 rounded-lg">
+                        Cat
+                </Link>
+
+            </div>
+
+                : " "}
 
 
             <Foot />

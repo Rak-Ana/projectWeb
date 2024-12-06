@@ -7,7 +7,7 @@ import { NextRequest, NextResponse } from "next/server";
 const secretKey = process.env.SECRET;
 const key = new TextEncoder().encode(secretKey);
 
-const TIMEOUT = 300 // 300 second
+const TIMEOUT = 30000 // 300 second
 
 export async function encrypt(payload: any) {
   return await new SignJWT(payload)
@@ -35,22 +35,28 @@ export async function loginUser(userInput:any, remember: boolean) {
   const session = await encrypt({ id, email, name, expires });
 
   // Save the session in a cookie
-  cookies().set("session", session, { expires, httpOnly: true });
+  (await
+    // Save the session in a cookie
+    cookies()).set("session", session, { expires, httpOnly: true });
   return { message: "Login Success" }
 }
 
 export async function logoutUser() {
   // Destroy the session 
   // cookies().set("session", "", { expires: new Date(0) });
-  cookies().delete('session')
+  (await
+    // Destroy the session 
+    // cookies().set("session", "", { expires: new Date(0) });
+    cookies()).delete('session')
   return { message: "Logout Success" }
 }
 
 export async function getSession() {
-  const session = cookies().get("session")?.value;
+  const session = (await cookies()).get("session")?.value;
   if (!session) return null;
   return await decrypt(session);
 }
+
 
 export async function updateSession(request: NextRequest) {
   const session = request.cookies.get("session")?.value;

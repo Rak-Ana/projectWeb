@@ -15,23 +15,27 @@ model User {
   email    String @unique
   name     String
   password String
-   posts    Post[]
-  favorites Post[]   @relation("UserFavorites")
+  posts    Post[]
+ 
 }
 
 model Post {
   id        Int      @id @default(autoincrement())
   subject   String
-  image     String   @default("default-image.jpg")
-   favorite   Int       @default(0)
+  image     String?
+  favorite  Boolean  @default(false)
   detail    String
   userId    Int
   like      Int
   user      User     @relation(fields: [userId], references: [id])
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
-  favoritedBy User[]   @relation("UserFavorites")
+  
 }
+
+
+
+
 
 
 

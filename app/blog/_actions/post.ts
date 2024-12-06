@@ -8,13 +8,14 @@ import { z } from "zod";
 const addSchema = z.object({
     subject: z.string().min(3).max(20),
     detail: z.string().min(3),
+    image: z.string().url().optional(),
 })
 
 type fieldErrors = {
     subject?: string[] | undefined;
     detail?: string[] | undefined;
     message?: string | undefined;
-    image?: string | undefined;
+    image?: string[] | undefined;
 }
 
 export default async function post(prevState: unknown, formData: FormData) : 
@@ -25,8 +26,7 @@ export default async function post(prevState: unknown, formData: FormData) :
         error?: fieldErrors;
     }> {
  
-    console.log("Subject: " + formData.get("subject") +
-        formData.get("detail1"));
+
 
     const result = addSchema.safeParse(Object.fromEntries(formData.entries()));
     if (result.success === false) {
@@ -35,7 +35,7 @@ export default async function post(prevState: unknown, formData: FormData) :
     }
 
     const data = result.data
-    const {subject, detail} = data
+    const {subject, detail,image} = data
     const User = await getSession()
     const userId = User.id
 
@@ -45,6 +45,7 @@ export default async function post(prevState: unknown, formData: FormData) :
                 subject,
                 detail,
                 userId,
+                image,
                 like:0,
             },
          })

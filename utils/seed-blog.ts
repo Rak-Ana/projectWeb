@@ -27,14 +27,14 @@ export default async function seed() {
                 create: [
                     {
                         subject: 'Subject',
-                        favorite: 0,
+                        favorite: false,
                         image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcScCHzUKwiWc03RWlEyXrmGCiYVxFKzxbWSbg&s",
                         detail: 'Lorem ipsum dol epturi! Fugit numquam, veritatis cumque nobis minima at. Deserunt, vel eum!',
                         like: 0,
                     },
                     {
                         subject: 'Subject 2',
-                        favorite: 0,
+                        favorite: false,
                         image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTffaHM6qE8GHVWbD0kPx2Pna6xxKody2MdGA&s",
                         detail: 'Lorem ipsum dol epturi! Fugit numquam, veritatis cumque nobis minima at. Deserunt 2',
                         like: 0,

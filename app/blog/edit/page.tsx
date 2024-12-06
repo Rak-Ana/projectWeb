@@ -55,7 +55,7 @@ export default function Edit() {
             required
           />
           {data.error?.image && (
-            <div className="text-red-600">{data.error?.image[0]}</div>
+            <div className="text-red-600">{data.error?.image}</div>
           )}
         </div>
 
