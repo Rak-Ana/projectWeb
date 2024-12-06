@@ -1,6 +1,7 @@
 "use client"
 import { useEffect, useState } from 'react';
 import axios from 'axios';
+import Link from 'next/link';
 
 export default function Home() {
   const [cats, setCats] = useState([]);
@@ -44,6 +45,11 @@ export default function Home() {
           </li>
         ))}
       </ul>
+     
+      <Link href="/blog"
+                    className="border-2 border-pink-700  p-2 m-2 rounded-lg flex justify-center ">
+                        Back
+                </Link>
     </div>
   );
 }

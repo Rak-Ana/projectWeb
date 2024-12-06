@@ -43,8 +43,28 @@ export default async function Blog() {
                 {posts.map((post) => (
                     <div>
                         <div key={post.id} className=" border-2 mr-4 p-4 rounded-lg min-w-[200px] max-w-[300px] relative hover:shadow-lg mb-4 ml-4">
+                            <div className="flex justify-between items-center">
                             <div className="mb-2">{post.subject}</div>
+                            <div>
+                            {user&& user.id==post.userId ?
+                                <>
+                                    <Link href={{
+                                        pathname: '/blog/edit',
+                                        query: { id: post.id, subject: post.subject, image: post.image, detail: post.detail }
+                                    }}
+                                        className={`${style} border-0 border-indigo-50 p-1 `}>
+                                        Edit
+                                    </Link>
 
+                                    <DeleteButton
+                                        id={post.id}
+                                        deletePost={deletePost} />
+                                </>
+                                :
+                                ""}
+                                </div>
+                            </div>
+                            
                             <hr />
                             <div>
                                 <img width={50} height={50} src={post.image} alt="image" className="w-full h-auto " />
@@ -53,21 +73,7 @@ export default async function Blog() {
                             <div>By: {post.user.name}</div>
                             <span>{post.like} <LikeButton id={post.id} likePost={likePost} unlikePost={unlikePost} /> </span>
 
-                            {user ?
-                                <>
-                                    <Link href={{
-                                        pathname: '/blog/edit',
-                                        query: { id: post.id, subject: post.subject, image: post.image, detail: post.detail }
-                                    }}
-                                        className={`${style} border-0 border-indigo-50  absolute top-2 right-5`}>
-                                        Edit |
-                                    </Link>
-                                    <DeleteButton
-                                        id={post.id}
-                                        deletePost={deletePost} />
-                                </>
-                                :
-                                ""}
+                           
 
                         </div>
                     </div>
